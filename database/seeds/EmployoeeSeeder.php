@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\Department;
+use App\Employoee;
 
-class DepartmentSeeder extends Seeder
+class EmployoeeSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +12,6 @@ class DepartmentSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Department::class, 5)->create();
+        factory(App\Employoee::class, 100)->create();
     }
 }
