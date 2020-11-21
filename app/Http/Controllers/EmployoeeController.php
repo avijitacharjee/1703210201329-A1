@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Employoee;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB; 
 class EmployoeeController extends Controller
 {
     /**
@@ -81,5 +81,17 @@ class EmployoeeController extends Controller
     public function destroy(Employoee $employoee)
     {
         //
+    }
+    public function list(Request $request){
+        $list = DB::table('Employoees')
+            ->join('departments', 'departments.id', '=', 'employoees.department_id')
+            ->select('employoees.*', 'departments.*')
+            ->get();
+        // return json_encode([
+        //     'list'=>$list
+        // ]);
+        return view('list',[
+            'lists'=>$list
+        ]);
     }
 }
